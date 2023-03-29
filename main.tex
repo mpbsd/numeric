@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[english]{babel}
+\usepackage{enumerate}
+\usepackage{mathtools}
+
+% theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{exercise}{Exercise}
+
+% custom commands
+% sets
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\irrationals}{\reals\setminus{\rationals}}
+% absolute value and norm
+\DeclarePairedDelimiter\absolutevalue{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+\title{Numeric Analysis}
+\author{Marcelo Bezerra}
+
+\begin{document}
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\input{chp/01}
+\input{chp/02}
+
+\backmatter
+
+\nocite{*}
+\bibliography{ref/main}
+\bibliographystyle{plain}
+
+\end{document}
