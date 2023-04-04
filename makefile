@@ -25,6 +25,7 @@ clean:
 	find . -type f -name main.bbl | xargs rm -rf
 	find . -type f -name main.blg | xargs rm -rf
 	find . -type f -name main.log | xargs rm -rf
+	find . -type f -name main.lol | xargs rm -rf
 	find . -type f -name main.pdf | xargs rm -rf
 	find . -type f -name main.toc | xargs rm -rf
 
