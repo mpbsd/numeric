@@ -76,4 +76,4 @@ You can write to me at `bezerra <at> ufg.br`. I'll try to answer you ASAP.
 [LaTeX]: https://latex-project.org/
 [GCC]: https://gcc.gnu.org/
 [Make]: https://www.gnu.org/software/make/
-[preferences]: https://en.wikipedia.org/wiki/Editor_war/
+[preferences]: https://en.wikipedia.org/wiki/Editor_war
