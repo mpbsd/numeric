@@ -7,7 +7,7 @@ About
 This is where I keep my class notes on a course about *numeric analysis* taught
 to grad students at [Universidade Federal de Goiás][]. The material is meant to
 serve as an introduction. Also, the source code is to be taken more seriously
-than the final PDF. For example, whenever you see the source code for C a
+than the final PDF. For example, whenever you see the source code for a C
 program named `prog.c` in the text, you should probably type `make prog` at the
 command prompt of a terminal just opened at the root of this project. If
 everything went well, you will then find a binary file named `prog.out` lying
@@ -60,8 +60,9 @@ The required software to compile and execute the code is listed below.
     > $ sudo pacman -Syu texlive-most
     > ```
 
-You're also going to need a text editor. Everyone seems to have their own
-[preferences][], just choose whatever suits you.
+You're also going to need a text editor in order to make changes to the code.
+Everyone seems to have their own [preferences][], just pick whatever suits you
+best.
 
 Contact
 -------
