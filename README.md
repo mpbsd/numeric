@@ -61,8 +61,7 @@ The required software to compile and execute the code is listed below.
     > ```
 
 You're also going to need a text editor in order to make changes to the code.
-Everyone seems to have their own [preferences][], just pick whatever suits you
-best.
+Everyone seems to have their own [preferences][], just pick whatever suits you.
 
 Contact
 -------

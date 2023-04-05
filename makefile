@@ -11,9 +11,6 @@ else
 	DC = zathura
 endif
 
-%:
-	$(CC) src/$@.c $(CFLAGS) $(CLIBS) -o src/$@.out
-
 draft:
 	$(TE) main
 	$(TE) main
@@ -25,6 +22,9 @@ final:
 	$(TE) main
 	$(TE) main
 	$(DC) main.pdf
+
+%:
+	$(CC) src/$@.c $(CFLAGS) $(CLIBS) -o src/$@.out
 
 clean:
 	find . -type f -name main.aux | xargs rm -rf
