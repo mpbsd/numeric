@@ -2,65 +2,53 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PRECISION 12
+#define NBASE     2
+#define PRECISION 16
+#define EPSILON   pow(0.1, PRECISION)
 
 void bconv(const int b, double f);
 
 int main(void) {
-  bconv(2, 0.02);
+  bconv(NBASE, 0.6);
+  bconv(NBASE, 0.7);
   exit(EXIT_SUCCESS);
 }
 
 void bconv(const int b, double f) {
-  double epsilon = pow(0.1, PRECISION);
+  double int_f;
+  double fra_f;
+  int *int_f_in_nbase = NULL;
+  int fra_f_in_nbase[PRECISION] = {0};
+  double aprox_fra_f;
+  int n, i, e;
 
-  double int_f; //   integral part of f
-  double fra_f; // fractional part of f
+  fra_f = modf(f, &int_f);
 
-  int sgn_f = 0;
-  int *int_f_in_base_b = NULL;
-  int fra_f_in_base_b[PRECISION] = {0};
+  n = (int)int_f;
 
-  int i, e, n;
-
-  if (f == 0.0) {
-    printf("+0.");
-    for (i = 0; i < PRECISION; i++)
-      printf("0");
-    printf("\n");
+  if (n == 0) {
+    printf("0");
   } else {
-    sgn_f = f / fabs(f);
-    fra_f = modf(f, &int_f);
-    int_f = fabs(int_f);
-    fra_f = fabs(fra_f);
-    n = (int)int_f;
-
-    printf("%c", (sgn_f == 1) ? '+' : '-');
-
-    if (int_f == 0) {
-      printf("0");
-    } else {
-      for (i = 1, e = 0; i <= n; i *= b, e++)
-        ;
-      int_f_in_base_b = malloc(e * sizeof(int));
-      for (i = e - 1; i >= 0; i--, n /= b)
-        int_f_in_base_b[i] = n % b;
-      for (i = 0; i <= e - 1; i++)
-        printf("%d", int_f_in_base_b[i]);
-      free(int_f_in_base_b);
-    }
-
-    printf(".");
-
-    for (i = 0, f = 0.0; (i < PRECISION) && (fabs(f - fra_f) >= epsilon); i++) {
-      n = (int)floor(pow(b, i + 1) * fra_f);
-      fra_f_in_base_b[i] = (n >= b) ? b - 1 : n;
-      f += fra_f_in_base_b[i] * pow(b, -(i + 1));
-    }
-
-    for (i = 0; i < PRECISION; i++)
-      printf("%d", fra_f_in_base_b[i]);
-
-    printf("\n");
+    for (i = 1, e = 0; i <= n; i *= b, e++)
+      ;
+    int_f_in_nbase = malloc(e * sizeof(int));
+    for (i = e - 1; i >= 0; i--, n /= b)
+      int_f_in_nbase[i] = n % b;
+    for (i = 0; i < e; i++)
+      printf("%d", int_f_in_nbase[i]);
+    free(int_f_in_nbase);
   }
+
+  printf(".");
+
+  for (i = 1, aprox_fra_f = 0.0; (i < PRECISION) && (fabs(aprox_fra_f - fra_f) >= EPSILON); i++) {
+    fra_f_in_nbase[i] = (int)floor(pow(b, i) * fabs(fra_f - aprox_fra_f));
+    aprox_fra_f += fra_f_in_nbase[i] * pow(b, -i);
+  }
+
+  for (i = 1; i < PRECISION; i++) {
+    printf("%d", fra_f_in_nbase[i]);
+  }
+
+  printf("\n");
 }
