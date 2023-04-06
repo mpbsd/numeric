@@ -34,15 +34,15 @@ The required software to compile and execute the code is listed below.
 
     On Debian based systems, these could be installed with:
 
-    > ```shell
-    > $ sudo apt install build-essential
-    > ```
+    ```shell
+    $ sudo apt install build-essential
+    ```
 
     On Arch based systems the command would rather be:
 
-    > ```shell
-    > $ sudo pacman -Syu base-devel
-    > ```
+    ```shell
+    $ sudo pacman -Syu base-devel
+    ```
 
 2. [TeX Live][]:
 
@@ -50,15 +50,15 @@ The required software to compile and execute the code is listed below.
     available on GNU/Linux. On Debian based systems, it could be installed
     with:
 
-    > ```shell
-    > $ sudo apt install texlive-full
-    > ```
+    ```shell
+    $ sudo apt install texlive-full
+    ```
 
     Again, if you're on a Arch based system, the command would be:
 
-    > ```shell
-    > $ sudo pacman -Syu texlive-most
-    > ```
+    ```shell
+    $ sudo pacman -Syu texlive-most
+    ```
 
 You're also going to need a text editor in order to make changes to the code.
 Everyone seems to have their own [preferences][], just pick whatever suits you.
