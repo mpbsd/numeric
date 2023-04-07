@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NBASE     2
+#define NBASE 2
 #define PRECISION 16
-#define EPSILON   pow(0.1, PRECISION)
+#define EPSILON pow(0.1, PRECISION)
 
 void bconv(const int b, double f);
 
@@ -41,7 +41,8 @@ void bconv(const int b, double f) {
 
   printf(".");
 
-  for (i = 1, aprox_fra_f = 0.0; (i < PRECISION) && (fabs(aprox_fra_f - fra_f) >= EPSILON); i++) {
+  for (i = 1, aprox_fra_f = 0.0;
+       (i < PRECISION) && (fabs(aprox_fra_f - fra_f) >= EPSILON); i++) {
     fra_f_in_nbase[i] = (int)floor(pow(b, i) * fabs(fra_f - aprox_fra_f));
     aprox_fra_f += fra_f_in_nbase[i] * pow(b, -i);
   }
