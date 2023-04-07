@@ -18,8 +18,7 @@ Assumption
 ----------
 
 Keep in mind that I do assume you to be running a GNU/Linux operating system
-like [Debian][] or [Arch Linux][], for instance. The required software to
-compile and run the code is listed below:
+like [Debian][] or [Arch Linux][], for instance.
 
 Software
 --------
