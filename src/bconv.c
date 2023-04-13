@@ -31,7 +31,7 @@ void bconv(const int b, double f) {
 
   n = (int)int_f;
 
-  printf("%f (base 10) is roughly equal to ", f);
+  printf("%f (base 10) is approximately equal to ", f);
 
   if (n == 0) {
     printf("0");
