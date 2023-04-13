@@ -4,15 +4,15 @@ Numeric Analysis
 About
 -----
 
-This is where I keep my class notes on a course about *numeric analysis* taught
-to grad students at [Universidade Federal de Goiás][]. The material is meant to
-serve as an introduction. Also, the source code is to be taken more seriously
-than the final PDF. For example, whenever you see the source code for a C
-program named `prog.c` in the text, you should probably type `make prog` at the
-command prompt of a terminal just opened at the root of this project. If
-everything went well, you will then find a binary file named `prog.out` lying
-in the `src` folder, that you could then execute to perform experiments of your
-own. Edit the source code to your liking, recompile it, rerun it, have fun!
+These are the lecture notes of a course on *numerical analysis* at an
+introductory level that I taught to undergraduate students at [UFG][]. The
+source code is to be taken more seriously than the final PDF. For example,
+whenever you see the source code for a C program named `prog.c` in the text,
+you should probably type `make prog` at the command prompt of a terminal just
+opened at the root of this project. If everything went well, you will then find
+a binary file named `prog.out` lying in the `src` folder, that you could then
+execute to perform experiments of your own. Edit the source code to your
+liking, recompile it, run it and mostly important, have fun!
 
 Assumption
 ----------
@@ -67,7 +67,7 @@ Contact
 
 You can write to me at `bezerra <at> ufg.br`. I'll try to answer you ASAP.
 
-[Universidade Federal de Goiás]: https://ufg.br/
+[UFG]: https://ufg.br/
 [Debian]: https://debian.org/
 [Arch Linux]: https://archlinux.org/
 [TeX Live]: https://tug.org/texlive/
