@@ -1,5 +1,5 @@
-Numeric Analysis
-================
+Numerical Analysis
+==================
 
 About
 -----
@@ -53,7 +53,7 @@ The required software to compile and execute the code is listed below.
     $ sudo apt install texlive-full
     ```
 
-    Again, if you're on a Arch based system, the command would be:
+    And, again, if you're on a Arch based system the command would be:
 
     ```shell
     $ sudo pacman -Syu texlive-most
