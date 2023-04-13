@@ -2,15 +2,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NBASE 2
 #define PRECISION 16
 #define EPSILON pow(0.1, PRECISION)
 
 void bconv(const int b, double f);
 
 int main(void) {
-  bconv(NBASE, 0.6);
-  bconv(NBASE, 0.7);
+  bconv(2, 0.9);
+  bconv(3, 0.9);
+  bconv(4, 0.9);
+  bconv(5, 0.9);
+  bconv(6, 0.9);
+  bconv(7, 0.9);
+  bconv(8, 0.9);
+  bconv(9, 0.9);
   exit(EXIT_SUCCESS);
 }
 
@@ -25,6 +30,8 @@ void bconv(const int b, double f) {
   fra_f = modf(f, &int_f);
 
   n = (int)int_f;
+
+  printf("%f (base 10) is roughly equal to ", f);
 
   if (n == 0) {
     printf("0");
@@ -51,5 +58,5 @@ void bconv(const int b, double f) {
     printf("%d", fra_f_in_nbase[i]);
   }
 
-  printf("\n");
+  printf(" (base %d)\n", b);
 }
