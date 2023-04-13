@@ -18,7 +18,10 @@ Assumption
 ----------
 
 Keep in mind that I do assume you to be running a GNU/Linux operating system
-like [Debian][] or [Arch Linux][], for instance.
+like [Debian][] or [Arch Linux][], for instance. If you are on a Windows
+machine, you could use the [WSL][]. On macOS, you could install the [Xcode
+command line tools][] and [MacTeX][] (also, [brew.sh][] see if you mind using a
+package manager).
 
 Software
 --------
@@ -70,6 +73,10 @@ You can write to me at `bezerra <at> ufg.br`. I'll try to answer you ASAP.
 [UFG]: https://ufg.br/
 [Debian]: https://debian.org/
 [Arch Linux]: https://archlinux.org/
+[WSL]: https://learn.microsoft.com/pt-br/windows/wsl/install/
+[Xcode command line tools]: https://stackoverflow.com/questions/9329243/how-to-install-xcode-command-line-tools/
+[MacTeX]: https://tug.org/mactex/
+[brew.sh]: https://brew.sh/
 [TeX Live]: https://tug.org/texlive/
 [LaTeX]: https://latex-project.org/
 [GCC]: https://gcc.gnu.org/
