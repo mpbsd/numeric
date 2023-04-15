@@ -1,13 +1,50 @@
-\section{Floating Point}\label{sec:floating-point}
+\section{Floating point}\label{sec:floating-point}
 
 A floating point number consists of a sign bit, a significand, also called the
-mantissa, and a power of a fixed base.
+mantissa, and a power of a fixed base. The general form is this:
+\begin{equation}\label{eq:floating-point-representation}
+  \pm{.d_{1}\ldots{d_{m}}\times{B^{e}}},
+\end{equation}
+where
+\begin{table}[H]
+  \centering
+  % \rowcolors{1}{white}{gray!15}
+  \begin{tabular}{ll}
+    \textbf{number of digits} & \(m\in\integers\), \(m>0\),           \\
+    \textbf{base}             & \(B\in\integers\), \(B\geqslant{2}\), \\
+    \textbf{exponent}         & \(e\in\integers\),                    \\
+    \textbf{digits}           & \(d_{1},\ldots,d_{m}\in\left\{z\in\integers:0\leqslant{z}\leqslant{B-1}\right\}\), \(d_{1}\neq{0}\).
+  \end{tabular}
+\end{table}
+For example, let's imagine a hypothetical computer in which
+\begin{equation}\label{eq:hypothetical-computer}
+  m=2,\quad{B=2}\quad\text{and}\quad{-1\leqslant{e}\leqslant{2}}.
+\end{equation}
+Then, the only positive numbers that are representable on such a machine are
+listed below:
+\begin{table}[H]
+  \centering
+  \rowcolors{1}{white}{gray!15}
+  \begin{tabular}{l|l||l|l}
+    \textbf{binary}       & \textbf{decimal} & \textbf{binary}      & \textbf{decimal} \\ \hline
+    \(.10\times{2^{-1}}\) & 1/4              & \(.10\times{2^{0}}\) & 1/2              \\
+    \(.11\times{2^{-1}}\) & 3/8              & \(.11\times{2^{0}}\) & 3/4              \\
+    \(.10\times{2^{1}}\)  & 1                & \(.10\times{2^{2}}\) & 2                \\
+    \(.11\times{2^{1}}\)  & 3/2              & \(.11\times{2^{2}}\) & 3                \\
+  \end{tabular}
+\end{table}
 
 \acrshort{gnu} C uses the floating point representations specified by the
 \acrshort{ieee} 754-2008 Standard for Floating Point Arithmetic~\cite{4610935}.
 
-\lstinputlisting[caption={bconv.c},label=bconv]{src/bconv.c}
+\section{Floating point arithmetic}\label{sec:floating-point-arithmetic}
 
-\subsection{Arithmetic perations}
+In this section we explore the precision of floating point arithmetic
+operations. For pedagogical reasons, we are going to work with another
+hypothetical computer, one in which \(m=2\), \(B=2\) and
+\(-5\leqslant{e}\leqslant{5}\).
 
-Checkout the code at Listing~\ref{bconv}
+\begin{example}
+  Sum \(4.32\) and \(0.064\).
+\end{example}
+
