@@ -17,11 +17,11 @@ recompile it, run it and mostly important, have fun!
 Assumption
 ----------
 
-Keep in mind that I do assume you to be running a GNU/Linux operating system
-like [Debian][] or [Arch Linux][], for instance. If you are on a Windows
-machine, you could use the [WSL][]. On macOS, you could install the [Xcode
-command line tools][] and [MacTeX][] (also, [brew.sh][] see if you mind using a
-package manager).
+Keep in mind that I do assume that you, like me, is running a GNU/Linux
+operating system like [Debian][] or [Arch Linux][], for instance. If you are on
+a Windows machine, you could use the [WSL][]. On macOS, you could install the
+[Xcode command line tools][] and [MacTeX][] (see [brew.sh][] if you mind using
+a package manager).
 
 Software
 --------
