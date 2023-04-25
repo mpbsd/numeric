@@ -16,7 +16,7 @@ void print(const real_number_t x);
 
 int main(void)
 {
-  real_number_t x[7] = {{NULL, 0, {0}}};
+  real_number_t x[2] = {{NULL, 0, {0}}};
   bconv(2, 0.6, &x[0]);
   bconv(2, 0.7, &x[1]);
   print(x[0]);
