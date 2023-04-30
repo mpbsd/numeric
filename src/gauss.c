@@ -2,41 +2,33 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define DIM 4
+#define DIM 3
 
+void printsystem(double A[DIM][DIM], double b[DIM], char *header_msg);
 void gauss(double A[DIM][DIM], double b[DIM], double *detA, int *info);
 
 int main(void) {
   double A[DIM][DIM] = {
-    {1.0, 6.0, 2.0, 4.0},
-    {3.0, 19.0, 4.0, 15.0},
-    {1.0, 4.0, 8.0, -12.0},
-    {5.0, 33.0, 9.0, 3.0}
+    {1.0, 2.0, 3.0},
+    {4.0, 5.0, 6.0},
+    {7.0, 8.0, 9.0}
   };
-  double b[DIM] = {8.0, 25.0, 18.0, 72.0};
+  double b[DIM] = {-3.0, -2.0, -1.0};
   double detA = 1.0;
   int info = 0;
-  int i, j;
 
-  printf("\nSistema original\n");
-
-  for (i = 0; i <= DIM - 1; i++) {
-    printf("\n [");
-    for (j = 0; j <= DIM + 1; j++) {
-      if (j <= DIM - 1) {
-        printf(" %6.2f", A[i][j]);
-      } else if (j == DIM) {
-        printf(" ][ X_%d ] = [", i);
-      } else {
-        printf(" %6.2f ]", b[i]);
-      }
-    }
-  }
+  printsystem(A, b, "Sistema original");
 
   gauss(A, b, &detA, &info);
 
-  printf("\n\nSistema escalonado\n");
+  printsystem(A, b, "Sistema escalonado");
 
+  exit(EXIT_SUCCESS);
+}
+
+void printsystem(double A[DIM][DIM], double b[DIM], char *header_msg) {
+  int i, j;
+  printf("\n%s\n", header_msg);
   for (i = 0; i <= DIM - 1; i++) {
     printf("\n [");
     for (j = 0; j <= DIM + 1; j++) {
@@ -49,10 +41,7 @@ int main(void) {
       }
     }
   }
-
   printf("\n");
-
-  exit(EXIT_SUCCESS);
 }
 
 void gauss(double A[DIM][DIM], double b[DIM], double *detA, int *info) {
