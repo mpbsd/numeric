@@ -122,7 +122,7 @@ void gauss_seidel_stationaty_method(double A[N][N], double b[N], double x[N], in
   for (i = 0; i <= N - 1; i++) {
     x[i] = b[i] / A[i][i];
   }
-  (*steps)++;
+  *steps = 0;
   do {
     (*steps)++;
     normNum = 0.0;
