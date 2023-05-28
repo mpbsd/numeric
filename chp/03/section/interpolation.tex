@@ -1,0 +1,109 @@
+\section{Interpolation}
+
+Sejam \((x_{i},y_{i})\in\euclideanspace{2}\), \(i\in\left\{0,1,2\right\}\),
+pontos dois a dois distintos. Podemos supor, possivelmente após renomear os
+\((x_{i},y_{i})\), que \(x_{0}<x_{1}<x_{2}\). Queremos encontrar um polinômio
+do segundo grau e com coeficientes em \(\reals\), digamos,
+\(p{\left(x\right)}=a_{0}+a_{1}x+a_{2}x^{2}\), tal que \(p(x_{i})=y_{i}\), para
+todo \(i\in\left\{0,1,2\right\}\). Para tanto, basta que se resolva ao sistema
+linear
+\begin{equation}\label{eq:sistema-linear-coeficientes-polinomio-interpolador-de-grau-dois}
+  \begin{bmatrix}
+    1 & x_{0} & x_{0}^{2} \\
+    1 & x_{1} & x_{1}^{2} \\
+    1 & x_{2} & x_{2}^{2}
+  \end{bmatrix}
+  \begin{bmatrix}
+    a_{0} \\ a_{1} \\ a_{2}
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    y_{0} \\ y_{1} \\ y_{2}
+  \end{bmatrix}
+\end{equation}
+Caso os pontos \(x_{0},x_{1}\) e \(x_{2}\) se encontrem em progressão
+aritmética, isto é, se existe \(h>0\) tal que \(x_{i+1}-x_{i}=h\) para todo
+\(i\in\left\{0,1,2\right\}\), então nós podemos dar uma expressão fechada para
+a solução
+de~\eqref{eq:sistema-linear-coeficientes-polinomio-interpolador-de-grau-dois}
+em termos \(x_{0},h,y_{0},y_{1}\) e \(y_{2}\), apenas. É isto o que passamos
+agora a descrever.
+
+Seja \(X_{ij}\in\euclideanspace{2\times{2}}\) a matriz que se obtém de
+\begin{equation*}
+  X=
+  \begin{bmatrix}
+    1 & x_{0} & x_{0}^{2} \\
+    1 & x_{1} & x_{1}^{2} \\
+    1 & x_{2} & x_{2}^{2}
+  \end{bmatrix}
+\end{equation*}
+através da deleção de suas linha \(i\) e coluna \(j\), para todos
+\(i,j\in\left\{0,1,2\right\}\). Como se tem
+\begin{equation*}
+  \det{\left(X\right)}
+  =
+  x_{1}x_{2}^{2}+x_{0}x_{1}^{2}+x_{0}^{2}x_{2}
+  -x_{1}x_{0}^{2}-x_{2}x_{1}^{2}-x_{2}^{2}x_{0}
+  =2h^{3}>0,
+\end{equation*}
+sabe-se que existe a matriz inversa
+\begin{equation*}
+  X^{-1}=\frac{1}{\det{\left(X\right)}}\left[(-1)^{i+j}\det{\left(X_{ij}\right)}\right]_{0\leqslant{i,j}\leqslant{2}}
+\end{equation*}
+que, por um cálculo direto, se mostra ser igual a
+\begin{equation}\label{eq:matriz-inversa-da-matriz-de-coeficientes-do-sistema}
+  X^{-1}
+  =
+  \frac{1}{2h^{3}}
+  \begin{bmatrix}
+    x_{0}^{2}h+3x_{0}h^{2}+2h^{3} & -2x_{0}^{2}h-4x_{0}h^{2} & x_{0}^{2}h+x_{0}h^{2} \\
+    -2x_{0}y-2h^{2}               & 4x_{0}h+4h^{2}           & -2x_{0}h-h^{2}        \\
+    h                             & -2h                      & h
+  \end{bmatrix}
+\end{equation}
+Finalmente, tem-se que
+\begin{equation}\label{eq:coeficientes-do-polinomio-interpolador-de-grau-dois}
+  \begin{bmatrix}
+    a_{0} \\ a_{1} \\ a_{2}
+  \end{bmatrix}
+  =
+  X^{-1}
+  \begin{bmatrix}
+    y_{0} \\ y_{1} \\ y_{2}
+  \end{bmatrix}
+\end{equation}
+por~\eqref{eq:sistema-linear-coeficientes-polinomio-interpolador-de-grau-dois}
+e~\eqref{eq:matriz-inversa-da-matriz-de-coeficientes-do-sistema}.
+\begin{example}
+  Sejam \((x_{0},y_{0})\), \(i\in\left\{0,1,2\right\}\), dados de acordo com a
+  tabela abaixo:
+  \[
+    \rowcolors{1}{white}{gray!15}
+    \begin{array}{r|r|r}
+      i & x_{i} & y_{i} \\ \hline
+      0 &   1.0 &   0.2 \\
+      1 &   2.0 &   2.0 \\
+      2 &   3.0 &  -1.5
+    \end{array}
+  \]
+  Deste modo,
+  por~\eqref{eq:coeficientes-do-polinomio-interpolador-de-grau-dois}, tem-se
+  que
+  \begin{equation}\label{eq:coeficientes-polinomio-interpolador-de-grau-dois-para-o-primeiro-exemplo}
+    \begin{bmatrix}
+      a_{0} \\ a_{1} \\ a_{2}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      3.0 & -3.0 &  0.5 \\
+      -2.0 &  4.0 & -1.5 \\
+      0.5 & -2.0 &  0.5
+    \end{bmatrix}
+    \begin{bmatrix}
+      0.2 \\ 2.0 \\ -1.5
+    \end{bmatrix}
+  \end{equation}
+  e, assim, que
+  \(p{\left(x\right)}=\frac{138}{20}+\frac{197}{20}x-\frac{53}{20}x^{2}\).
+\end{example}
